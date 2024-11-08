@@ -1,10 +1,12 @@
-import urllib
-from pytube import YouTube
 from requests_html import HTMLSession
+import urllib
+import yt_dlp
 import cv2
 import os
 import glob
 
+
+search_term = input('Search query: ')
 
 def get_urls(text, limit):
     """
@@ -41,7 +43,7 @@ def get_urls(text, limit):
 
         print(f"Found {len(urls)} video links for {text}")
         print(urls)
-        return urls  # Retorna a lista de URLs ao invés de apenas imprimir
+        return urls  # Retorna a lista de URLs
 
     finally:
         # Garante que a sessão será fechada
@@ -53,53 +55,61 @@ def is_valid_duration(video_length, max_duration, min_duration):
     Verifica se a duração de um vídeo está dentro dos limites especificados.
 
     Parâmetros:
-    - video_length (int): A duração do vídeo em milissegundos.
+    - video_length (int): A duração do vídeo em segundos.
     - max_duration (int): Duração máxima permitida do vídeo (em minutos).
     - min_duration (int): Duração mínima permitida do vídeo (em minutos).
 
     Retorna:
     - bool: `True` se a duração do vídeo estiver dentro dos limites, `False` caso contrário.
     """
-    return min_duration * 60 * 1000 < video_length < max_duration * 60 * 1000
+    return min_duration * 60 < video_length < max_duration * 60
 
 
-def download_video(url, path='./videos', max_duration=15, min_duration=2):
+def download_video(url, path=f'./videos/{search_term}', max_duration=15, min_duration=2):
     """
     Faz o download de um vídeo do YouTube, se sua duração estiver dentro dos limites especificados.
 
     Parâmetros:
     - url (str): A URL do vídeo do YouTube a ser baixado.
-    - path (str, opcional): O caminho para salvar o vídeo. Se `None`, será salvo no diretório atual.
+    - path (str, opcional): O caminho para salvar o vídeo.
     - max_duration (int): Duração máxima permitida do vídeo (em minutos). Padrão: 15 minutos.
     - min_duration (int): Duração mínima permitida do vídeo (em minutos). Padrão: 2 minutos.
 
     Retorna:
     - out_file (str ou None): O caminho do arquivo baixado, ou `None` se o download não for concluído.
     """
+    ydl_opts = {
+        'format': 'mp4',
+        'outtmpl': os.path.join(path, '%(title)s.%(ext)s')
+    }
+
     try:
-        yt = YouTube(url)
-        duration = yt.length
-        # Verifica se a duração do vídeo está dentro do limite especificado
-        if is_valid_duration(duration, max_duration, min_duration):
-            yt = yt.streams.filter(file_extension='mp4').first()
-            out_file = yt.download(path)
-            file_name = os.path.basename(out_file)
-            print(f"Downloaded {file_name} correctly!")
-            return out_file
-        else:
-            print(f"Video {url} is too long or too short.")
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=False)
+            duration = info_dict.get("duration", 0)
+            
+            # Verifica se a duração do vídeo está dentro do limite especificado
+            if is_valid_duration(duration, max_duration, min_duration):
+                print(duration)
+                out_file = ydl.download([url])
+                file_name = os.path.join(path, f"{info_dict['title']}.mp4")
+                print(f"Downloaded {file_name} correctly!")
+                return file_name
+            else:
+                print(duration)
+                print(f"Video {url} is too long or too short.")
     except Exception as exc:
         print(f"Failed to download {url}: {exc}")
     return None
 
 
-def download_videos(urls, path='./videos', max_duration=15, min_duration=2):
+def download_videos(urls, path=f'./videos/{search_term}', max_duration=15, min_duration=2):
     """
     Faz o download de uma lista de vídeos do YouTube, respeitando as condições de duração.
 
     Parâmetros:
     - urls (list): Lista de URLs dos vídeos a serem baixados.
-    - path (str, opcional): O caminho para salvar os vídeos. Se `None`, serão salvos no diretório atual.
+    - path (str, opcional): O caminho para salvar os vídeos.
     - max_duration (int): Duração máxima permitida dos vídeos (em minutos).
     - min_duration (int): Duração mínima permitida dos vídeos (em minutos).
 
@@ -209,6 +219,5 @@ def extract_images_from_word(text, delete_video=False, image_delay=30, num_urls=
             os.remove(video)
 
 
-search_term = input('Search query: ')
 urls = get_urls(search_term, limit=15)
 download_videos(urls)

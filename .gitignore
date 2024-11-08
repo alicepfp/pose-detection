@@ -35,3 +35,7 @@ results_only_knee/
 
 ### Yolo Files ###
 yolov8s-pose.pt
+
+### extractor test ###
+extractor/extractor.py
+extractor/__pycache__
