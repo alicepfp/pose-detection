@@ -37,5 +37,5 @@ results_only_knee/
 yolov8s-pose.pt
 
 ### extractor test ###
-extractor/extractor.py
-extractor/__pycache__
+./extractor/extractor.py
+./extractor/__pycache__
