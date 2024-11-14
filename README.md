@@ -223,7 +223,7 @@ Distributed under the AGPL-3.0 License. See `LICENSE` for more information.
 [issues-shield]: https://img.shields.io/github/issues/alicepfp/pose-detection.svg?style=for-the-badge
 [issues-url]: https://github.com/alicepfp/pose-detection/issues
 [license-shield]: https://img.shields.io/github/license/alicepfp/pose-detection.svg?style=for-the-badge
-[license-url]: https://github.com/alicepfp/pose-detection/blob/master/LICENSE
+[license-url]: https://github.com/alicepfp/pose-detection/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [mail-shield]: https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white
