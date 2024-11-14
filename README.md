@@ -3,7 +3,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
 [![Stargazers][stars-shield]][stars-url]
-[![MIT License][license-shield]][license-url]
+[![AGLP License][license-shield]][license-url]
 [![python][python]][python-url]
 
 
