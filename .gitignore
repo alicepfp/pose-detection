@@ -32,6 +32,7 @@ jeb/
 knee/
 no_movement/
 results_only_knee/
+PoseDetectionV1/
 
 ### Yolo Files ###
 yolov8s-pose.pt

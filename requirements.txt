@@ -1,0 +1,9 @@
+opencv_python==4.9.0.80
+pandas==2.0.2
+requests_html==0.10.0
+torch==2.2.2
+ultralytics==8.3.29
+yt_dlp==2024.11.4
+scikit_learn==1.2.2
+seaborn==0.13.2
+xgboost==2.1.2
