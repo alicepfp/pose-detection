@@ -8,10 +8,10 @@
 
 
 
-<h3 align="center">Pose Detection for Sports</h3>
+<h1 align="center">Pose Detection for Sports</h1>
 
   <p align="center">
-    Pose detection project using YOLO to predict sports movements
+    Pose detection project that analyzes sports videos to track and predict movements using pose estimation.
     <br />
   </p>
 </div>
@@ -37,9 +37,15 @@
       <a href="#usage">Usage</a>
       <ul>
         <li><a href="#extractor">Extractor</a></li>
-        <li><a href="#dataset.py">Dataset.py</a></li>
-        <li><a href="#model.py">Model.py</a></li>
-        <li><a href="#metrics.ipynb">Metrics.ipynb</a></li>
+      </ul>
+      <ul>
+        <li><a href="#datasetpy">Dataset.py</a></li>
+      </ul>
+      <ul>
+        <li><a href="#modelpy">Model.py</a></li>
+      </ul>
+      <ul>
+        <li><a href="#metricsipynb">Metrics.ipynb</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -53,22 +59,13 @@
 
 ## About The Project
 
-This project focuses on detecting and analyzing human poses from videos  
-sourced from YouTube focusing in sports and contact sports to create 
-a dataset to train ML models so we can tag and predict movements in 
-different video sources.
+This project is dedicated to detecting and analyzing human poses in YouTube videos, with a particular focus on sports and contact sports. The goal is to create a comprehensive dataset for training machine learning models capable of tagging and predicting movements across various video sources.
 
-By leveraging the power of YOLO (You Only Look Once) models, 
-it identifies human figures within video frames, extracting pose 
-data for each detected individual. 
+By utilizing the powerful YOLO (You Only Look Once) model, the system identifies human figures within video frames and extracts pose data for each detected individual.
 
-A core part of the workflow involves downloading YouTube 
-videos and processing them into frames, which can 
-then be analyzed with YOLO's pose estimation model.
+A key component of the workflow involves downloading videos from YouTube and processing them into individual frames. These frames are then analyzed using YOLO's pose estimation capabilities.
 
-Only then we can analyze the extracted poses and create a  
-dataset to train a ML model that can tag, evaluate and predict 
-different types of movements in multiple video sources.  
+The extracted pose data serves as the foundation for building a dataset that enables the training of machine learning models. These models aim to evaluate, tag, and predict diverse types of movements across multiple video contexts.  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,24 +93,48 @@ different types of movements in multiple video sources.
 
 ## Getting Started
 
-To run this project first clone it into the directory of your preference 
-and the follow the steps bellow.
+This guide will help you set up and run the project step-by-step. The project focuses on pose detection and keypoint extraction, so it's important to have the necessary tools and dependencies installed correctly. Follow the instructions below to get started.
 
 ### Prerequisites and libraries installation
 
-First you need to clone the repo and install the required python packages 
-using the `requirements.txt` file, it's recommended to use a virtual env 
-like [conda](https://anaconda.org/anaconda/conda) or [venv](https://docs.python.org/3/library/venv.html).
+Before running the project, you'll need to prepare your environment by cloning the repository and installing the required Python packages listed in the `requirements.txt` file. Using a virtual environment is strongly recommended to avoid conflicts with other projects and to maintain a clean development setup. Tools like [conda](https://anaconda.org/anaconda/conda) or Python's built-in [venv](https://docs.python.org/3/library/venv.html) are excellent choices for this purpose.
 
-* Clone the repo
-  ```sh
-  git clone https://github.com/alicepfp/pose-detection.git
-  ```
+1. **Clone the repository**
+    
+    The first step is to download the project's source code to your local machine by cloning the repository:
 
-* Run the `requirements.txt` file
-  ```sh
-  pip install -r requirements.txt
-  ```
+    ```sh  
+    git clone https://github.com/alicepfp/pose-detection.git
+    ```
+
+2. **Set up a virtual environment (optional but recommended)**
+  
+    Create and activate a virtual environment using either `conda` or `venv`:
+
+   * Using conda:
+    ```sh
+    conda create --name pose-detection-env python=3.11
+    conda activate pose-detection-env
+    ```
+
+    * Using venv:
+    ```sh
+    python -m venv pose-detection-env  
+    source pose-detection-env/bin/activate  # On Windows, use: pose-detection-env\Scripts\activate
+    ```
+
+3. **Install required packages**
+
+    Once your virtual environment is active, install the project's dependencies using the requirements.txt file. The example below uses `conda`:
+    ```sh
+    conda install --yes --file requirements.txt
+    ```
+    Alternatively, you can use `pip` if you're not using conda, just make sure that the packages in the file are correct:
+    ```sh
+    pip install -r requirements.txt  
+    ```
+
+  After completing these steps, you'll have everything set up to run the project and start working on pose detection.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -122,33 +143,49 @@ like [conda](https://anaconda.org/anaconda/conda) or [venv](https://docs.python.
 
 ## Usage
 
-This project is organized in folders for different scripts that have 
-different functions.
+This project is organized into folders, each containing scripts dedicated to specific functions within the workflow. This modular structure keeps the project organized, making it easier to manage, test, and expand. Each folder focuses on a particular task, such as video downloading, frame extraction, pose detection, or data processing. By separating these functions, the project remains clear and scalable, allowing for easier updates and the addition of new features as needed.
 
-### Extractor 
+### Extractor  
 
-The extractor folder contains the script responsible for finding and 
-downloading videos and them separating each frame into images to extract 
-each person in the video keypoints.
+  The **extractor** folder contains a script designed for:  
+   - Locating and downloading videos.  
+   - Splitting videos into individual frames.  
+   - Extracting keypoints for each person detected in the frames.  
 
-To use the script go into the folder and then run:
-```sh
-  python3 run.py
-```
-The script will prompt some questions for the user to input their preferences 
-for running it.
+      #### Running the Extractor Script  
+
+      To use the extractor script, follow these steps:  
+
+      * Navigate to the **extractor** folder:  
+        
+        ```sh  
+        cd extractor
+        ```
+
+      * Execute the script:
+
+        ```sh
+        python3 run.py
+        ```
+
+      * Provide input:
+        
+        The script will prompt you with questions to customize the process, such as specifying the video source or other parameters. Answer the prompts as needed, and the script will handle the rest.
 
 ### Dataset.py
 
 `To be implemented` 
 
+
 ### Model.py
 
 `To be implemented`
 
+
 ### Metrics.ipynb
 
 `To be implemented`
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,23 +193,26 @@ for running it.
 
 ## Roadmap
 
-- [X] Extractor
-    - [X] Video search and download
-    - [X] Frame extraction
-    - [X] YOLO person pose and keypoints extraction
-    - [X] Keypoints csv 
-- [ ] Dataset
-    - [ ] Keypoints recognition
-    - [ ] Tagging based on keypoints
-    - [ ] Dataset creation
-- [ ] Model
-    - [ ] XGBoost classification model
-    - [ ] Train YOLO based on XGBoost weights
-    - [ ] Use YOLO trained model to tag video movements
-- [ ] Metrics
-    - [ ] Evaluate XGBoost classification model
-    - [ ] Evaluate YOLO precision
-    - [ ] Evaluate precision on detected movements in each video 
+### Extractor  
+- [X] **Video Search and Download**: Implement functionality to search for and download videos.  
+- [X] **Frame Extraction**: Develop the script to extract individual frames from downloaded videos.  
+- [X] **YOLO Pose and Keypoints Extraction**: Integrate YOLO for detecting human poses and extracting keypoints from each frame.  
+- [X] **Keypoints CSV Generation**: Output the extracted keypoints in a structured CSV format for further analysis.  
+
+### Dataset  
+- [ ] **Keypoints Recognition**: Implement recognition and classification of keypoints from the extracted data.  
+- [ ] **Tagging Based on Keypoints**: Tag movements and positions based on keypoint data for dataset labeling.  
+- [ ] **Dataset Creation**: Compile a comprehensive dataset from the tagged keypoints and associated video frames.  
+
+### Model  
+- [ ] **XGBoost Classification Model**: Develop an XGBoost model for classifying movements based on keypoint data.  
+- [ ] **Train YOLO with XGBoost Weights**: Fine-tune the YOLO model using the weights derived from the XGBoost classifier.  
+- [ ] **Movement Tagging with YOLO**: Use the trained YOLO model to tag movements and predict actions in videos.  
+
+### Metrics  
+- [ ] **Evaluate XGBoost Classification Model**: Measure the performance of the XGBoost model with appropriate evaluation metrics (e.g., accuracy, F1 score).  
+- [ ] **Evaluate YOLO Precision**: Assess the precision of the YOLO model in detecting poses and keypoints.  
+- [ ] **Evaluate Movement Detection Precision**: Evaluate the accuracy and precision of detected movements in the video data.  
 
 See the [open issues](https://github.com/alicepfp/pose-detection/issues) for a full list of proposed features (and known issues).
 
