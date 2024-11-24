@@ -5,3 +5,7 @@
 # IPython
 profile_default/
 ipython_config.py
+
+# Branches
+/PoseDetectionV1
+/IoT
