@@ -8,10 +8,10 @@
 
 
 
-<h1 align="center">Pose Detection for Sports</h1>
+<h1 align="center">Pose Detection for Sports - V1</h1>
 
   <p align="center">
-    Pose detection project that analyzes sports videos to track and predict movements using pose estimation.
+    Pose detection project that analyzes sports videos to track and predict movements using pose estimation. This brach focus on the first version of the project.
     <br />
   </p>
 </div>
@@ -59,13 +59,11 @@
 
 ## About The Project
 
-This project is dedicated to detecting and analyzing human poses in YouTube videos, with a particular focus on sports and contact sports. The goal is to create a comprehensive dataset for training machine learning models capable of tagging and predicting movements across various video sources.
+This version of the project focuses on detecting and analyzing human poses in videos of Muay Thai classes recorded by me. The primary objective is to create a robust dataset for training machine learning models capable of tagging and predicting movements throughout these videos.
 
-By utilizing the powerful YOLO (You Only Look Once) model, the system identifies human figures within video frames and extracts pose data for each detected individual.
+Leveraging the powerful YOLO (You Only Look Once) model, the system detects human figures in each video frame and extracts detailed pose data for every identified individual.
 
-A key component of the workflow involves downloading videos from YouTube and processing them into individual frames. These frames are then analyzed using YOLO's pose estimation capabilities.
-
-The extracted pose data serves as the foundation for building a dataset that enables the training of machine learning models. These models aim to evaluate, tag, and predict diverse types of movements across multiple video contexts.  
+The extracted pose data forms the foundation of a comprehensive dataset, enabling the development of machine learning models designed to evaluate, tag, and predict various types of movements captured in the recorded videos. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
