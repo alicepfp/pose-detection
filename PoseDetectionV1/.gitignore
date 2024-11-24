@@ -1,0 +1,25 @@
+testa.ipynb
+
+### Video ###
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.swf
+*.vob
+*.wmv
+*.webm
+
+### Folders ###
+*/
+
+### Yolo Files ###
+yolov8s-pose.pt
