@@ -5,38 +5,3 @@
 # IPython
 profile_default/
 ipython_config.py
-
-testa.ipynb
-
-### Video ###
-*.3g2
-*.3gp
-*.asf
-*.asx
-*.avi
-*.flv
-*.mkv
-*.mov
-*.mp4
-*.mpg
-*.ogv
-*.rm
-*.swf
-*.vob
-*.wmv
-*.webm
-
-### Folders ###
-cross/
-jeb/
-knee/
-no_movement/
-results_only_knee/
-PoseDetectionV1/
-
-### Yolo Files ###
-yolov8s-pose.pt
-
-### extractor test ###
-./extractor/extractor.py
-./extractor/__pycache__
