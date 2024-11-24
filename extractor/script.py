@@ -44,7 +44,7 @@ class YouTubeDownloader:
                 if min_duration * 60 < duration < max_duration * 60:  # Verifica se a duração do vídeo está dentro do intervalo
                     ydl.download([url])  # Baixa o vídeo
                     return os.path.join(path, f"{info['title']}.mp4")  # Retorna o caminho do vídeo baixado
-                print(f"Vídeo too long or too short.")
+                print("Vídeo too long or too short.")
         except Exception as exc:
             print(f"Error downloading video {url}: {exc}")
         return None
