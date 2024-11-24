@@ -39,16 +39,18 @@
         <li><a href="#extractor">Extractor</a></li>
       </ul>
       <ul>
-        <li><a href="#datasetpy">Dataset.py</a></li>
+        <li><a href="#videoseparator">Video Separator</a></li>
       </ul>
       <ul>
-        <li><a href="#modelpy">Model.py</a></li>
+        <li><a href="#datasetcreator">Dataset Creator</a></li>
       </ul>
       <ul>
-        <li><a href="#metricsipynb">Metrics.ipynb</a></li>
+        <li><a href="#model">Model</a></li>
+      </ul>
+      <ul>
+        <li><a href="#yolo">Yolo</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -141,86 +143,53 @@ Before running the project, you'll need to prepare your environment by cloning t
 
 ## Usage
 
-This project is organized into folders, each containing scripts dedicated to specific functions within the workflow. This modular structure keeps the project organized, making it easier to manage, test, and expand. Each folder focuses on a particular task, such as video downloading, frame extraction, pose detection, or data processing. By separating these functions, the project remains clear and scalable, allowing for easier updates and the addition of new features as needed.
+This project is organized into multiple Jupyter notebooks, each dedicated to a specific stage of the workflow required for performing YOLO inference on videos. These notebooks guide tasks such as video preprocessing, frame extraction, dataset creation, model creation and pose detection. Additionally, the project includes a Python script equipped with a video extractor, allowing users to download videos directly from YouTube and automatically process them to extract keypoints for each detected individual. The extracted keypoints can be saved in a structured format, making them readily available for further analysis or use in training machine learning models.
 
 ### Extractor  
 
-  The **extractor** folder contains a script designed for:  
+  The **extractor** script is designed for:  
    - Locating and downloading videos.  
    - Splitting videos into individual frames.  
    - Extracting keypoints for each person detected in the frames.  
 
       #### Running the Extractor Script  
 
-      To use the extractor script, follow these steps:  
-
-      * Navigate to the **extractor** folder:  
-        
-        ```sh  
-        cd extractor
-        ```
+      To use the extractor script, follow these steps:
 
       * Execute the script:
 
         ```sh
-        python3 run.py
+        python3 extractor.py
         ```
 
       * Provide input:
         
         The script will prompt you with questions to customize the process, such as specifying the video source or other parameters. Answer the prompts as needed, and the script will handle the rest.
 
-### Dataset.py
-
-`To be implemented` 
-
-
-### Model.py
-
-`To be implemented`
-
-
-### Metrics.ipynb
-
-`To be implemented`
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Video Separator
 
 
 
-## Roadmap
 
-### Extractor  
-- [X] **Video Search and Download**: Implement functionality to search for and download videos.  
-- [X] **Frame Extraction**: Develop the script to extract individual frames from downloaded videos.  
-- [X] **YOLO Pose and Keypoints Extraction**: Integrate YOLO for detecting human poses and extracting keypoints from each frame.  
-- [X] **Keypoints CSV Generation**: Output the extracted keypoints in a structured CSV format for further analysis.  
+### Dataset Creator
 
-### Dataset  
-- [ ] **Keypoints Recognition**: Implement recognition and classification of keypoints from the extracted data.  
-- [ ] **Tagging Based on Keypoints**: Tag movements and positions based on keypoint data for dataset labeling.  
-- [ ] **Dataset Creation**: Compile a comprehensive dataset from the tagged keypoints and associated video frames.  
 
-### Model  
-- [ ] **XGBoost Classification Model**: Develop an XGBoost model for classifying movements based on keypoint data.  
-- [ ] **Train YOLO with XGBoost Weights**: Fine-tune the YOLO model using the weights derived from the XGBoost classifier.  
-- [ ] **Movement Tagging with YOLO**: Use the trained YOLO model to tag movements and predict actions in videos.  
 
-### Metrics  
-- [ ] **Evaluate XGBoost Classification Model**: Measure the performance of the XGBoost model with appropriate evaluation metrics (e.g., accuracy, F1 score).  
-- [ ] **Evaluate YOLO Precision**: Assess the precision of the YOLO model in detecting poses and keypoints.  
-- [ ] **Evaluate Movement Detection Precision**: Evaluate the accuracy and precision of detected movements in the video data.  
 
-See the [open issues](https://github.com/alicepfp/pose-detection/issues) for a full list of proposed features (and known issues).
+### Model
+
+
+
+
+### Yolo
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+This version of the project is no longer mantained but contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
