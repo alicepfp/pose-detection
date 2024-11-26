@@ -1,4 +1,4 @@
-<a id="readme-top"></a>
+<div id="readme-top" align="center">
 
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
@@ -6,6 +6,7 @@
 [![AGLP License][license-shield]][license-url]
 [![python][python]][python-url]
 
+</div>
 
 
 <h1 align="center">Pose Detection for Sports - V1</h1>
